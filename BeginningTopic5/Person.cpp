@@ -55,3 +55,12 @@ void Person::demoThis()
 //    //To be continued!
 //
 //}
+
+std::ostream& operator<<(std::ostream& os, const Person& thePerson)
+{
+	os << thePerson.name << " has email address: " << thePerson.emailAddress
+		<< "\n";
+
+
+	return os; 
+}

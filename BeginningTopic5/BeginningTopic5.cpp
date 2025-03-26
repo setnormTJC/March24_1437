@@ -34,12 +34,12 @@ int main()
 
     if (you == yourPartner)
     {
-        std::cout << "You are dating YOURSELF?\n";
+        std::cout << "You are partners with YOURSELF.\n";
     }
 
     else
     {
-        std::cout << "Good, you aren't dating yourself\n";
+        std::cout << "You are NOT partners with yourself.\n";
     }
 
     std::cout << you; //next time!

@@ -1,4 +1,5 @@
 #pragma once
+#include<fstream> 
 #include <iostream>
 
 class AICompanion
@@ -11,7 +12,7 @@ public:
 
 class Person
 {
-public: 
+private: 
     std::string emailAddress;
 
 public:
@@ -25,12 +26,18 @@ public:
 
     Person operator + (const Person& rightHandSide);
 
+    //operator !(); //you can overload NOT as well 
+
     bool operator == (const Person& rightHandSide);
 
     bool isSamePerson(const Person& rightHandSide);
 
     void demoThis(); 
 
+    friend std::ostream& operator << (std::ostream& os, const Person& thePerson); 
+
+    //void print(); 
+    // 
     //friend void someFriendFunction(); //let's come back to this later!
 };
 
