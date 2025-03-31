@@ -81,6 +81,12 @@ void demoSimpleSortOfNumbers()
 
 int main()
 {
+    std::string a = "asdfasd";
+    std::string b = "12387fs";
+
+    std::string c = a + b; 
+
+
     Shoe firstShoe("Assert 9", 4, 59.99);
     Shoe lastShoe("My shoes", 5, 129.99);
 
@@ -106,14 +112,14 @@ int main()
 
     printShoeList(shoeList, "\n\nSorted by PRICE:");
 
-    //compareByStars is a function pointer in the line of code below: 
+    //compareByStars is a "function pointer" in the line of code below: 
     std::sort(shoeList.begin(), shoeList.end(), compareByStars); //NOTE: compareByStars is NOT a member of `Shoe`
     printShoeList(shoeList, "\n\nSorted by REVIEW rating:");
 
 
     std::string filename = "out.txt";
 
-    std::ofstream fout("out.txt");
+    std::ofstream fout(filename);
 
     fout << firstShoe << "\n";
     fout.close(); 
