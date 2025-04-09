@@ -72,7 +72,7 @@ int main()
 
 	mapKeysToValues(thresholdCatAges, catAgeDescriptors);
 	std::cout << "\n\n\n";
-	mapKeysToValues(catAgeDescriptors, thresholdCatAges);
+	//mapKeysToValues(catAgeDescriptors, thresholdCatAges);
 
 	//std::vector<int> nums = { 1, 2, 3 , "adsfasdf"};
 

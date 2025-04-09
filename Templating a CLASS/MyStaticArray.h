@@ -1,11 +1,12 @@
 #pragma once
 
+#include<algorithm>
 
 class IntegerStaticArray
 {
 private:
 	static constexpr int MAX_CAPACITY = 5;
-	int listOfData[MAX_CAPACITY]; //make space for 5 elements of type "T"
+	int listOfNumbers[MAX_CAPACITY]; //make space for 5 elements of type INT 
 
 
 };
@@ -15,23 +16,47 @@ class GenericStaticArray
 {
 private: 
 	static constexpr int MAX_CAPACITY = 5;
-	T listOfData[MAX_CAPACITY]; //make space for 5 elements of type "T"
-
+	T listOfThangs[MAX_CAPACITY]; //make space for 5 elements of type "T"
 
 public: 
 	GenericStaticArray() = default; 
 
-	GenericStaticArray(const T& theInitialValueOfAll5Elements)
+	GenericStaticArray(const T& anInputValue)
 	{
 		for (int i = 0; i < MAX_CAPACITY; ++i)
-			listOfData[i] = theInitialValueOfAll5Elements;
+			listOfThangs[i] = anInputValue + i; //beware! this will BREAK for <string>!
 
 	}
+
+	GenericStaticArray<T> operator + (const GenericStaticArray<T>& otherArray)
+	{
+		GenericStaticArray<T> theResult; 
+		//to be continued...
+		for (int i = 0; i < MAX_CAPACITY; ++i)
+			theResult.listOfThangs[i] = this->listOfThangs[i] + otherArray.listOfThangs[i]; 
+
+
+		return theResult; 
+	}
+	
+	//GenericStaticArray<T> operator - (const GenericStaticArray<T>& otherArray) //prolly NOT a good idea !
+
+	void naiveSort()
+	{
+		//to be continued 
+	}
+
+	/*@return the LAST element in the array*/
+	T back()
+	{
+		return listOfThangs[MAX_CAPACITY - 1];
+	}
+
 
 	void print()
 	{
 		for (int i = 0; i < MAX_CAPACITY; ++i)
-			std::cout << listOfData[i] << " ";
+			std::cout << listOfThangs[i] << " ";
 
 		std::cout << "\n";
 	}
