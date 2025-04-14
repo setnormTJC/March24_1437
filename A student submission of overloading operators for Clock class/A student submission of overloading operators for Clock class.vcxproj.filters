@@ -15,16 +15,16 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\..\..\..\Downloads\Clock_class\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyStaticArray.cpp">
+    <ClCompile Include="..\..\..\..\Downloads\Clock_class\Clock.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyStaticArray.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="..\..\..\..\Downloads\Clock_class\Clock.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

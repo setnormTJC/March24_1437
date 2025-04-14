@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{74262fd3-23f6-4f19-a2fa-05e830177b2f}</ProjectGuid>
-    <RootNamespace>TemplatingaCLASS</RootNamespace>
+    <ProjectGuid>{1a062a82-8e3b-4da6-8ce6-5c34a7442d45}</ProjectGuid>
+    <RootNamespace>AstudentsubmissionofoverloadingoperatorsforClockclass</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -127,11 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="MyStaticArray.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Clock_class\Clock.cpp" />
+    <ClCompile Include="..\..\..\..\Downloads\Clock_class\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyStaticArray.h" />
+    <ClInclude Include="..\..\..\..\Downloads\Clock_class\Clock.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
