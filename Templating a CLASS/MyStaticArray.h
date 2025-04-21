@@ -4,9 +4,37 @@
 
 #include<cassert>
 
+#include<sstream>
+
 namespace MySpace
 {
+	class MyCustomException// : public std::exception
+	{
+	public: 
+		MyCustomException() = delete; 
+		MyCustomException(const std::string& partialErrorMessage, const int lineNumber, const std::string& filename)
+			:partialErrorMessage(partialErrorMessage), lineNumber(lineNumber), filename(filename)
+		{
 
+		}
+
+		/*"what" as in WHAT in the world went wrong*/
+		std::string what() 
+		{
+			std::ostringstream fullErrorMessage;
+			fullErrorMessage << "In file named: " << filename << " on line number: " << lineNumber
+				<< "\nthe following error message occurs" << partialErrorMessage << "\n";
+
+
+			return fullErrorMessage.str(); 
+		}
+
+	private: 
+		std::string partialErrorMessage; 
+		int lineNumber; 
+		std::string filename; 
+
+	};
 
 	class IntegerStaticArray
 	{
@@ -59,25 +87,25 @@ namespace MySpace
 			return -1; 
 		}
 
-		void mySwap(const T& firstElement, const T& secondElement)
+		void mySwap(const int firstIndex, const int secondIndex)
 		{
-			int indexOfFirstElement = getIndexOfElement(firstElement); //this will be 0 for Darth 
-			int indexOfSecondElement = getIndexOfElement(secondElement); //this will be 1 for Alice (in the current example)
 
+			T storage = listOfThangs[firstIndex];
 
-			T temporaryCopyOfFirstElement = listOfThangs[indexOfFirstElement];
+			listOfThangs[firstIndex] = listOfThangs[secondIndex];
 
-			listOfThangs[indexOfFirstElement] = listOfThangs[indexOfSecondElement];
-
-			listOfThangs[indexOfSecondElement] = temporaryCopyOfFirstElement;
-
+			listOfThangs[secondIndex] = storage;
 
 		}
 
 		void modifyElementAtIndex(const T& newValueToPutIn, const int theIndexToPutItAt)
 		{
-		
-			if (theIndexToPutItAt < 0 ) throw std::exception("index was less than 0!");
+			//assert(theIndexToPutItAt >= 0 &&)
+			//if (theIndexToPutItAt < 0 ) throw std::exception("index was less than 0!");
+
+			if (theIndexToPutItAt < 0) throw MyCustomException("index was less than 0 in `modifyElementAtIndex`", 
+				__LINE__, __FILE__);
+
 
 			listOfThangs[theIndexToPutItAt] = newValueToPutIn;
 
@@ -101,17 +129,18 @@ namespace MySpace
 	
 		void naiveSort()
 		{
+			std::cout << MAX_CAPACITY << "\n";
 			for (int outer = 0; outer < MAX_CAPACITY - 1; ++outer)
 			{
 				for (int inner = outer + 1; inner < MAX_CAPACITY; ++inner) //previously initialized inner to ONE (1) 
 				{
 					if (listOfThangs[inner] < listOfThangs[outer])
 					{
-						mySwap(listOfThangs[inner], listOfThangs[outer]);
+						mySwap(inner, outer); //PascalCase camelCase
 
-						std::cout << "A SWAP happened! Hooray! Here's the UPDATED array (any key to continue):\n";
-						print(); 
-						std::cin.get(); //requires a single input character before continuing execution
+						//std::cout << "A SWAP happened! Hooray! Here's the UPDATED array (any key to continue):\n";
+						//print(); 
+						//std::cin.get(); //requires a single input character before continuing execution
 					}
 				}
 			}
