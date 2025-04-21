@@ -37,7 +37,7 @@ int main()
 	{
 		constexpr int NUMBER_OF_ELEMENTS = 1000; 
 
-		MySpace::GenericStaticArray<int, NUMBER_OF_ELEMENTS> oneHundredRandomNumbers(99);
+		MySpace::GenericStaticArray<int, NUMBER_OF_ELEMENTS> oneThousandRandomNumbers; 
 
 		std::mt19937 rng(std::random_device{}());
 		std::uniform_int_distribution<> randomDistributionFrom0To100(0, NUMBER_OF_ELEMENTS); 
@@ -45,14 +45,14 @@ int main()
 		for (int i = 0; i < NUMBER_OF_ELEMENTS; ++i)
 		{
 			auto currentRandomNumber = randomDistributionFrom0To100(rng);
-			oneHundredRandomNumbers.modifyElementAtIndex(currentRandomNumber, i);
+			oneThousandRandomNumbers.modifyElementAtIndex(currentRandomNumber, i);
 		}
 
-		oneHundredRandomNumbers.print(); 
+		oneThousandRandomNumbers.print(); 
 
-		oneHundredRandomNumbers.naiveSort();
+		oneThousandRandomNumbers.naiveSort();
 		std::cout << "\n\n\nAfter sorting\n";
-		oneHundredRandomNumbers.print(); 
+		oneThousandRandomNumbers.print(); 
 
 	}
 
