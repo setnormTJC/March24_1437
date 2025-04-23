@@ -62,6 +62,19 @@ namespace MySpace
 
 		}
 
+		int getN()
+		{
+			return MAX_CAPACITY; 
+		}
+
+		T getElementAtGivenIndex(int index)
+		{
+			//defensive programming FTW!
+			if (index < 0) throw MyCustomException("index cannot be less than 0!", __LINE__, __FILE__);
+
+			return listOfThangs[index]; 
+		}
+
 		GenericStaticArray<T, MAX_CAPACITY> operator + (const GenericStaticArray<T, MAX_CAPACITY>& otherArray)
 		{
 			GenericStaticArray<T> theResult; 
@@ -126,15 +139,21 @@ namespace MySpace
 			return -1; 
 
 		}
+
+		void binarySearch(const T& thingToSearchFor, int startingSearchIndex, int lastSearchIndex)
+		{
+
+		}
 	
+		/*This algorithm has "time complexity" O(N^2) -> N is the number of elements */
 		void naiveSort()
 		{
-			std::cout << MAX_CAPACITY << "\n";
+			//std::cout << MAX_CAPACITY << "\n";
 			for (int outer = 0; outer < MAX_CAPACITY - 1; ++outer)
 			{
 				for (int inner = outer + 1; inner < MAX_CAPACITY; ++inner) //previously initialized inner to ONE (1) 
 				{
-					if (listOfThangs[inner] < listOfThangs[outer])
+					if (listOfThangs[inner] < listOfThangs[outer])//this is a comparison operation (obviously) 
 					{
 						mySwap(inner, outer); //PascalCase camelCase
 

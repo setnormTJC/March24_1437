@@ -30,29 +30,70 @@ void demoSomeStaticOfStringFunctionality()
 	names.print();
 }
 
+void demoSortingRandomNumbers()
+{
+	constexpr int NUMBER_OF_ELEMENTS = 10;
+
+	MySpace::GenericStaticArray<int, NUMBER_OF_ELEMENTS> oneThousandRandomNumbers;
+
+	std::mt19937 rng(std::random_device{}());
+	std::uniform_int_distribution<> randomDistributionFrom0To100(0, NUMBER_OF_ELEMENTS);
+
+	for (int i = 0; i < NUMBER_OF_ELEMENTS; ++i)
+	{
+		auto currentRandomNumber = randomDistributionFrom0To100(rng);
+		oneThousandRandomNumbers.modifyElementAtIndex(currentRandomNumber, i);
+	}
+
+	oneThousandRandomNumbers.print();
+
+	oneThousandRandomNumbers.naiveSort();
+	std::cout << "\n\n\nAfter sorting\n";
+	oneThousandRandomNumbers.print();
+}
+
 int main()
 {
 	
 	try
 	{
-		constexpr int NUMBER_OF_ELEMENTS = 1000; 
+		constexpr int N = 20; 
 
-		MySpace::GenericStaticArray<int, NUMBER_OF_ELEMENTS> oneThousandRandomNumbers; 
+		MySpace::GenericStaticArray<std::string, N> listOfNames("Alice");
 
+		listOfNames.modifyElementAtIndex("Bob", 1);
+		listOfNames.modifyElementAtIndex("Carol", 2);
+		listOfNames.modifyElementAtIndex("David", 3);
+		listOfNames.modifyElementAtIndex("Eve", 4);
+		listOfNames.modifyElementAtIndex("Frank", 5);
+		listOfNames.modifyElementAtIndex("Grace", 6);
+		listOfNames.modifyElementAtIndex("Heidi", 7);
+		listOfNames.modifyElementAtIndex("Ivan", 8);
+		listOfNames.modifyElementAtIndex("Judy", 9);
+		listOfNames.modifyElementAtIndex("Karl", 10);
+		listOfNames.modifyElementAtIndex("Liam", 11);
+		listOfNames.modifyElementAtIndex("Mallory", 12);
+		listOfNames.modifyElementAtIndex("Niaj", 13);
+		listOfNames.modifyElementAtIndex("Olivia", 14);
+		listOfNames.modifyElementAtIndex("Peggy", 15);
+		listOfNames.modifyElementAtIndex("Quentin", 16);
+		listOfNames.modifyElementAtIndex("Rupert", 17);
+		listOfNames.modifyElementAtIndex("Sybil", 18);
+		listOfNames.modifyElementAtIndex("Trent", 19);
+
+		listOfNames.print(); 
+
+		//pick a random number between 0 and the number of names in the list: 
 		std::mt19937 rng(std::random_device{}());
-		std::uniform_int_distribution<> randomDistributionFrom0To100(0, NUMBER_OF_ELEMENTS); 
+		std::uniform_int_distribution<> randomDistributionFrom0ToN(0, N - 1);
 
-		for (int i = 0; i < NUMBER_OF_ELEMENTS; ++i)
-		{
-			auto currentRandomNumber = randomDistributionFrom0To100(rng);
-			oneThousandRandomNumbers.modifyElementAtIndex(currentRandomNumber, i);
-		}
+		int randomIndexChosen = randomDistributionFrom0ToN(rng);
 
-		oneThousandRandomNumbers.print(); 
+		const std::string randomNameToSearchFor = listOfNames.getElementAtGivenIndex(randomIndexChosen);
 
-		oneThousandRandomNumbers.naiveSort();
-		std::cout << "\n\n\nAfter sorting\n";
-		oneThousandRandomNumbers.print(); 
+		std::cout << "Searching for " << randomNameToSearchFor << "...\n";
+
+		//left on a cliffhanger!
 
 	}
 

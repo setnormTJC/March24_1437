@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Templating a CLASS", "Templ
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Some student submission of polymorphism assignment", "Some student submission of polymorphism assignment\Some student submission of polymorphism assignment.vcxproj", "{63ED7D5E-2F86-4580-A836-5BC79092D4A4}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo sorting objects of a class", "Demo sorting objects of a class\Demo sorting objects of a class.vcxproj", "{5617B6D0-0E38-416E-9122-D32D4313E51F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{63ED7D5E-2F86-4580-A836-5BC79092D4A4}.Release|x64.Build.0 = Release|x64
 		{63ED7D5E-2F86-4580-A836-5BC79092D4A4}.Release|x86.ActiveCfg = Release|Win32
 		{63ED7D5E-2F86-4580-A836-5BC79092D4A4}.Release|x86.Build.0 = Release|Win32
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Debug|x64.ActiveCfg = Debug|x64
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Debug|x64.Build.0 = Debug|x64
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Debug|x86.ActiveCfg = Debug|Win32
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Debug|x86.Build.0 = Debug|Win32
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Release|x64.ActiveCfg = Release|x64
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Release|x64.Build.0 = Release|x64
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Release|x86.ActiveCfg = Release|Win32
+		{5617B6D0-0E38-416E-9122-D32D4313E51F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
