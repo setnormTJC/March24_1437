@@ -93,7 +93,7 @@ int main()
 
 		std::cout << "Searching for " << randomNameToSearchFor << "...\n";
 
-		//left on a cliffhanger!
+		listOfNames.binarySearch(randomNameToSearchFor, 0, listOfNames.getN());
 
 	}
 

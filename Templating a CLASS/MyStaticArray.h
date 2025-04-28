@@ -140,9 +140,49 @@ namespace MySpace
 
 		}
 
-		void binarySearch(const T& thingToSearchFor, int startingSearchIndex, int lastSearchIndex)
+		bool isSortedInAscendingOrder()
 		{
+			for (int i = 0; i < MAX_CAPACITY - 1; ++i)
+			{
+				if (listOfThangs[i + 1] < listOfThangs[i]) //TRUE for this example: {3, 1} since 1 < 3
+				{
+					return false; 
+				}
+			}
 
+			return true; //if it is NEVER the case that the next element in the array is less than the current element 
+		}
+
+		/*
+		* @returns the INDEX of `thingToSearchFor` -> returns -1 if not found
+		*/
+		int binarySearch(const T& thingToSearchFor, int startingSearchIndex, int lastSearchIndex)
+		{
+			/*safety check: throw exception if array is not sorted (in ascending order)*/
+			static bool safetyCheckDone; //implicitly initialized to false -> note the use of STATIC!
+			if (safetyCheckDone == false)
+			{
+				if (!isSortedInAscendingOrder())
+				{
+					throw MyCustomException("Cannot call binary search on unsorted array!"
+						,__LINE__, __FILE__ );
+				}
+			}
+			safetyCheckDone = true;  //only need to check for "sortedness" once 
+
+			if (startingSearchIndex > lastSearchIndex) //array was "subdivided" 
+				return -1;    						//so many times that we have no elements left in search range!
+
+			int middleIndex = startingSearchIndex + (lastSearchIndex  - startingSearchIndex) / 2;
+
+			if (listOfThangs[middleIndex] == thingToSearchFor)
+				return middleIndex;
+
+			else if (listOfThangs[middleIndex] < thingToSearchFor) //look "right" (in the "upper sublist")
+				return binarySearch(thingToSearchFor, middleIndex + 1, lastSearchIndex);
+
+			else //look in the "lower" sublist
+				return binarySearch(thingToSearchFor, startingSearchIndex, middleIndex - 1);
 		}
 	
 		/*This algorithm has "time complexity" O(N^2) -> N is the number of elements */
